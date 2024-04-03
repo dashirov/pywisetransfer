@@ -14,8 +14,6 @@ class Status(str, Enum):
     UPCOMING = 'UPCOMING'
     COMPLETED = 'COMPLETED'
     CANCELLED = 'CANCELLED'
-
-
 class ActivitiesType(str, Enum):
     ACQUIRING_PAYMENT = 'ACQUIRING_PAYMENT'
     AUTO_CONVERSION = 'AUTO_CONVERSION'
@@ -43,8 +41,6 @@ class ActivitiesType(str, Enum):
     REWARD = 'REWARD'
     SCHEDULED_SEND_ORDER = 'SCHEDULED_SEND_ORDER'
     TRANSFER = 'TRANSFER'
-
-
 class ActivityMonetaryResourceType(str, Enum):
     ACCRUAL_CHARGE = 'ACCRUAL_CHARGE'
     ACQUIRING_PAYMENT = 'ACQUIRING_PAYMENT'
@@ -69,8 +65,6 @@ class ActivityMonetaryResourceType(str, Enum):
     SEND_ORDER = 'SEND_ORDER'
     SEND_ORDER_EXECUTION = 'SEND_ORDER_EXECUTION'
     TRANSFER = 'TRANSFER'
-
-
 class ActivitiesService(Base):
     activity = JsonEndpointWithSCA(
         path="/v1/profiles/{profile_id}/activities",
@@ -113,9 +107,10 @@ class Activities:
                         else:
                             raise ValueError(f"size must be all digits; got {param_value}")
                 case 'next_cursor':
-                    params['nextCursor'] = param_value
+                    if param_value is not None:
+                        params['nextCursor'] = param_value
                 case _:
-                    raise ValueError(f"unrecognized parameter '{param_name}")
+                    raise ValueError(f"Unrecognized parameter '{param_name}")
 
         return munchify(
             self.service.activity(

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from pywisetransfer.card_transactions import CardTransactions
+
 
 class Client:
     def add_resources(self) -> None:
@@ -12,6 +14,8 @@ class Client:
         from pywisetransfer.subscription import Subscription
         from pywisetransfer.user import User
         from pywisetransfer.activities import Activities
+        from pywisetransfer.card_transactions import CardTransactions
+        from pywisetransfer.transfers import Transfers
 
         self.account_details = AccountDetails(client=self)
         self.balance_statements = BalanceStatements(client=self)
@@ -22,6 +26,8 @@ class Client:
         self.subscriptions = Subscription(client=self)
         self.users = User(client=self)
         self.activities = Activities(client=self)
+        self.card_transactions = CardTransactions(client=self)
+        self.transfers = Transfers(client=self)
 
     def __init__(
         self,
