@@ -88,7 +88,7 @@ class Activities:
             **kwargs
     ) -> Any:
         params :dict= {}
-        for param_name, param_value in kwargs.values():
+        for param_name, param_value in kwargs.items():
             match param_name:
                 case 'monetary_resource_type':
                     if param_value is not None:
