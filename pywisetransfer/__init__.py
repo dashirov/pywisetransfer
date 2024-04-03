@@ -11,6 +11,7 @@ class Client:
         from pywisetransfer.profile import Profile
         from pywisetransfer.subscription import Subscription
         from pywisetransfer.user import User
+        from pywisetransfer.activities import Activities
 
         self.account_details = AccountDetails(client=self)
         self.balance_statements = BalanceStatements(client=self)
@@ -20,6 +21,7 @@ class Client:
         self.profiles = Profile(client=self)
         self.subscriptions = Subscription(client=self)
         self.users = User(client=self)
+        self.activities = Activities(client=self)
 
     def __init__(
         self,
