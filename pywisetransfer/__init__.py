@@ -1,8 +1,5 @@
 from __future__ import annotations
 
-from pywisetransfer.card_transactions import CardTransactions
-
-
 class Client:
     def add_resources(self) -> None:
         from pywisetransfer.account_details import AccountDetails

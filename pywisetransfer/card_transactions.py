@@ -10,7 +10,7 @@ from pywisetransfer.endpoint import JsonEndpointWithSCA
 class CardTransactionsService(Base):
     card_transaction = JsonEndpointWithSCA(
         path="/v3/profiles/{profile_id}/card-transactions/{transaction_id}",
-        required_params=['profile_id', 'transaction_id'],
+        required_params=[],
     )
 
 
